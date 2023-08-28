@@ -27,7 +27,8 @@ const devConfig = {
         static: path.join(__dirname, 'dist'), // 注意：Webpack5 中已用 static 替代 contentBase
         open: true, // 开启服务器时，自动打开页面
         compress: true, // 开启 gzip 压缩
-        port: 9000, // 自定义端口号
+        host:'crm-local.qa.hsmob.com',
+        port: 8080, // 自定义端口号
         hot: true, // 开启热更新
         // publicPath: '/' // 服务器访问静态资源的默认路径，优先级高于 output.publicPath
         proxy,

@@ -21,43 +21,21 @@ module.exports = {
         rules: [
             // webpack5 type: asset替代了raw-loader、url-loader、file-loader
             {
-                // 图片
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                // 图片,文本
+                test: /\.(jpe?g|png|gif|svg|txt|xml)$/i,
                 type: 'asset'
                 //转换为 "asset/resource"
-            },
-
-            {
-                // 字体文件
-                test: /\.(otf|eot|woff2?|ttf|svg)$/i,
-                type: "asset", // 一般会转换为 "asset/inline"
-            },
-
-            {
-                // 数据文件
-                test: /\.(txt|xml)$/i,
-                type: "asset", // 一般会转换成 "asset/source"
             },
             // 样式文件
             {
 
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                test: /\.(css|less)$/,
+                use: ["style-loader", "css-loader","less-loader"],
             },
-            // {
-            //     test: /\.s[ac]ss$/i,
-            //     use: [
-            //       // Creates `style` nodes from JS strings
-            //       "style-loader",
-            //       // Translates CSS into CommonJS
-            //       "css-loader",
-            //       // Compiles Sass to CSS
-            //       "sass-loader",
-            //     ],
-            //   },
-            // 对es6的转换
+           
+            // 对es6的转换 js ts
             {
-                test: /\.m?js$/,
+                test: /\.(js|ts)x?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
